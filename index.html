@@ -77,6 +77,7 @@
                         <li class="has-dropdown"><a href="#">24er Mosaike</a>
                             <ul class="dropdown">
                                 <li><a href="index.html?id=42">Antiquarium München</a></li>
+                                <li><a href="index.html?id=59">Bavaria München</a></li>
                                 <li><a href="index.html?id=52">Blue Sun Garching</a></li>
                                 <li><a href="index.html?id=16">Districts of Munich</a></li>
                                 <li><a href="index.html?id=23">Das große Biergartenmosaik</a></li>
@@ -91,7 +92,8 @@
                                 <li><a href="index.html?id=49">1972 Summer Olympics</a></li>
                                 <li><a href="index.html?id=30">Stadtwappen Dachau</a></li>
                                 <li><a href="index.html?id=57">Tatort Hadern</a></li>
-                                <li><a href="index.html?id=32">X-MAS Mosaik</a></li>
+                                <li><a href="index.html?id=58">Weihnachten am Chinesischen Turm</a></li>
+                                <!--<li><a href="index.html?id=32">X-MAS Mosaik</a></li>-->
                             </ul>
                         </li>
                         <li class="has-dropdown"><a href="#">18er Mosaike</a>
@@ -101,6 +103,7 @@
                                 <li><a href="index.html?id=21">Germeringer Kermit</a></li>
                                 <li><a href="index.html?id=9">Ismaning Mosaik</a></li>
                                 <li><a href="index.html?id=50">Marienplatz Tal (1890)</a></li>
+                                <li><a href="index.html?id=60">Schwabylon</a></li>
                                 <li><a href="index.html?id=33">The Shapers Eye</a></li>
                             </ul>
                         </li>
@@ -410,6 +413,18 @@
             pointToLayer: startMissionStyle,
             onEachFeature: onEachPointOverview
         }));
+        markers.addLayer(L.geoJson(chinturm_startMissions.features[0], {
+            pointToLayer: startMissionStyle,
+            onEachFeature: onEachPointOverview
+        }));
+        markers.addLayer(L.geoJson(bavaria_startMissions.features[0], {
+            pointToLayer: startMissionStyle,
+            onEachFeature: onEachPointOverview
+        }));
+        markers.addLayer(L.geoJson(schwabylon_startMissions.features[0], {
+            pointToLayer: startMissionStyle,
+            onEachFeature: onEachPointOverview
+        }));
         map.addLayer(markers);
     }
     switch (getQueryVariable("id")) {
@@ -499,9 +514,7 @@
         case "31":
             prepareMission(stachus_mission, stachus_startMissions);
             break;
-        case "32":
-            prepareMission(xmas_mission, xmas_startMissions);
-            break;
+        // case 32 was: xmas
         case "33":
             prepareMission(shapers_mission, shapers_startMissions);
             break;
@@ -574,6 +587,15 @@
             break;
         case "57":
             prepareMission(tatort_mission, tatort_startMissions);
+            break;
+        case "58":
+            prepareMission(chinturm_mission, chinturm_startMissions);
+            break;
+        case "59":
+            prepareMission(bavaria_mission, bavaria_startMissions);
+            break;
+        case "60":
+            prepareMission(schwabylon_mission, schwabylon_startMissions);
             break;
         default:
             showStartPortals();
